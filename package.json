@@ -1,0 +1,16 @@
+{
+  "name": "@broberg/fleet-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Monorepo: @broberg/fleet-contracts + @broberg/fleet-client — typed client + shared zod contracts for the broberg fleet HTTP API (buddy + cardmem).",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
