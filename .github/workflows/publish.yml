@@ -57,7 +57,8 @@ jobs:
             fi
           done
 
-      - name: Publish (OIDC, contracts first)
-        run: |
-          pnpm --filter @broberg/fleet-contracts publish --access public --no-git-checks --provenance
-          pnpm --filter @broberg/fleet-client   publish --access public --no-git-checks --provenance
+      # Recursive publish runs in topological order (contracts → client) and
+      # SKIPS any package whose version is already on npm — so once a package
+      # is bootstrapped by hand, re-tagging only publishes the bumped ones.
+      - name: Publish (OIDC)
+        run: pnpm -r publish --access public --no-git-checks --provenance
